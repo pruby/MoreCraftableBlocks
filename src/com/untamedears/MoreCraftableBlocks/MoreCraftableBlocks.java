@@ -27,7 +27,7 @@ public class MoreCraftableBlocks extends JavaPlugin {
 		Bukkit.addRecipe(stoneToDoubleSlab);
 		
 		ShapedRecipe slabToDoubleSlab = new ShapedRecipe(new ItemStack(43, 1, (short) 0, (byte) 6));
-		slabToDoubleSlab.shape("s", "s").setIngredient('s', Material.STEP);
+		slabToDoubleSlab.shape("s", "s").setIngredient('s', Material.getMaterial(44));
 		Bukkit.addRecipe(slabToDoubleSlab);
 		
 		log.info(pluginName+" v"+version+" enabled!");
