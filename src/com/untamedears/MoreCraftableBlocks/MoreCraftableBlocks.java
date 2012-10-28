@@ -1,3 +1,8 @@
+// This class provides mod infrastructure and 
+// defines two new recipes to craft the 43:6 
+// double-halfslab block. 
+// Author: dvanclev
+
 package com.untamedears.MoreCraftableBlocks;
 
 import java.util.logging.Logger;
@@ -17,11 +22,11 @@ public class MoreCraftableBlocks extends JavaPlugin {
     public void onEnable() {
 		log = this.getLogger();
 		
-		ShapedRecipe stoneToDoubleSlab = new ShapedRecipe(new ItemStack(44, 6, (short) 0, (byte) 6));
+		ShapedRecipe stoneToDoubleSlab = new ShapedRecipe(new ItemStack(43, 6, (short) 0, (byte) 6));
 		stoneToDoubleSlab.shape("sss", "sss").setIngredient('s', Material.STONE);
 		Bukkit.addRecipe(stoneToDoubleSlab);
 		
-		ShapedRecipe slabToDoubleSlab = new ShapedRecipe(new ItemStack(44, 1, (short) 0, (byte) 6));
+		ShapedRecipe slabToDoubleSlab = new ShapedRecipe(new ItemStack(43, 1, (short) 0, (byte) 6));
 		slabToDoubleSlab.shape("s", "s").setIngredient('s', Material.STEP);
 		Bukkit.addRecipe(slabToDoubleSlab);
 		
