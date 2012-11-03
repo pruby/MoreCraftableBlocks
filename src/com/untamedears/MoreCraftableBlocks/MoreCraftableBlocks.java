@@ -16,8 +16,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MoreCraftableBlocks extends JavaPlugin {
 
     public static Logger log;
-    public static String pluginName = "CraftableDoubleslabs";
-    public static String version = "0.1.0";
+    public static String pluginName = "MoreCraftableBlocks";
+    public static String version = "0.1.2";
     
     public void onEnable() {
 		log = this.getLogger();
