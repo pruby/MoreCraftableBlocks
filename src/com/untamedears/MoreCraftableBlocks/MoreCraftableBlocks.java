@@ -1,8 +1,7 @@
 // This class provides mod infrastructure and 
 // defines two new recipes to craft the 43:6 
 // double-halfslab block. 
-// and one to allow for the duplication of books
-// Author: dvanclev with contributions by Pheenixm
+// Author: dvanclev
 
 package com.untamedears.MoreCraftableBlocks;
 
@@ -25,7 +24,8 @@ public class MoreCraftableBlocks extends JavaPlugin {
     public void onEnable() {
 		log = this.getLogger();
         getServer().getPluginManager().registerEvents(new ItemCraftListener(this), this);
-
+        getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
+        
         ItemStack result = new ItemStack(Material.BOOK_AND_QUILL);
 
         addShapelessRecipe(result, new Material[] {
