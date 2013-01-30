@@ -40,7 +40,7 @@ public class MoreCraftableBlocks extends JavaPlugin {
 		slabToDoubleSlab.shape("s", "s").setIngredient('s', Material.getMaterial(44));
 		Bukkit.addRecipe(slabToDoubleSlab);
 		
-                ShapedRecipe placeableCobwebs = new ShapedRecipe(new ItemStack(Material.WEB), 1);
+                ShapedRecipe placeableCobwebs = new ShapedRecipe(new ItemStack(Material.WEB, 1));
                 placeableCobwebs.shape("s s", " s ","s s").setIngredient('s', Material.STRING);
                 Bukkit.addRecipe(placeableCobwebs);
 		
