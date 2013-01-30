@@ -24,7 +24,6 @@ public class MoreCraftableBlocks extends JavaPlugin {
     public void onEnable() {
 		log = this.getLogger();
         getServer().getPluginManager().registerEvents(new ItemCraftListener(this), this);
-        getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
         
         ItemStack result = new ItemStack(Material.BOOK_AND_QUILL);
 
