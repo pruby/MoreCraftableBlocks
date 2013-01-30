@@ -7,11 +7,7 @@ package com.untamedears.MoreCraftableBlocks;
 
 import java.util.HashMap;
 
-import net.minecraft.server.NBTTagCompound;
-
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -41,13 +37,8 @@ public class ItemCraftListener implements Listener {
 
         // ItemStack represention of the book to be cloned.
         ItemStack initialBook = craftingInventory.getItem(writtenBookIndex);
-
-        // The base Minecraft class representation of the book to be cloned.
-        net.minecraft.server.ItemStack stack = ((CraftItemStack) initialBook).getHandle();
-
-        // Store all of the tags contained within the book.
-        NBTTagCompound tag = stack.getTag();
-
+        ItemStack bookCopy = initialBook.clone();
+        
         // Get the player's inventory.
         PlayerInventory playerInventory = event.getWhoClicked().getInventory();
 
@@ -72,42 +63,7 @@ public class ItemCraftListener implements Listener {
             playerInventory.addItem(initialBook);
 
             // Sets the result of the craft to the copied books.
-            event.setCurrentItem(getNewBook(initialBook));
+            event.setCurrentItem(bookCopy);
         }
-    }
-
-    private ItemStack getNewBook(ItemStack previousBook) {
-        // Creates the new book to be returned.
-        CraftItemStack newBook = new CraftItemStack(Material.WRITTEN_BOOK);
-
-        // Creates copies of the source and target tags.
-        NBTTagCompound sourceTag = ((CraftItemStack) previousBook).getHandle().getTag();
-        NBTTagCompound targetTag = new NBTTagCompound();
-
-        // Clones all of the tags contained within the previous book to the new
-        // one.
-        transferBookTags(sourceTag, targetTag);
-
-        // Sets the tags for the new book.
-        newBook.getHandle().tag = targetTag;
-
-        return newBook;
-    }
-
-    private void transferBookTags(NBTTagCompound sourceTag, NBTTagCompound targetTag)
-    {
-        // Transfers the author, title, and pages to the new tag.
-        targetTag.setString("author", sourceTag.getString("author"));
-        targetTag.setString("title", sourceTag.getString("title"));
-        transferNBTTagList(sourceTag, targetTag, "pages");
-    }
-
-    public static void transferNBTTagList(NBTTagCompound sourceTag, NBTTagCompound targetTag, String list) {
-        // Checks to make sure that the enchantments exist.
-        if (sourceTag.getList(list).size() == 0)
-            return;
-
-        // Transfers any enchantments to the new tag.
-        targetTag.set(list, sourceTag.getList(list));
     }
 }
