@@ -51,11 +51,11 @@ public class MoreCraftableBlocks extends JavaPlugin {
     		Material.FLINT
         });
 
-		ShapedRecipe stoneToDoubleSlab = new ShapedRecipe(new ItemStack(43, 6, (short) 0, (byte) 6));
+		ShapedRecipe stoneToDoubleSlab = new ShapedRecipe(new ItemStack(43, 6, (short) 0, (byte) 0));
 		stoneToDoubleSlab.shape("sss", "sss").setIngredient('s', Material.STONE);
 		Bukkit.addRecipe(stoneToDoubleSlab);
 
-		ShapedRecipe slabToDoubleSlab = new ShapedRecipe(new ItemStack(43, 1, (short) 0, (byte) 6));
+		ShapedRecipe slabToDoubleSlab = new ShapedRecipe(new ItemStack(43, 1, (short) 0, (byte) 0));
 		slabToDoubleSlab.shape("s", "s").setIngredient('s', Material.getMaterial(44));
 		Bukkit.addRecipe(slabToDoubleSlab);
 		
